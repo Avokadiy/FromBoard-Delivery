@@ -1,8 +1,56 @@
+/*
+1. Почему эти стили написаны в файле lib.less?
+2. Когда я посоветовал использовать less, то также указал, на что стоит обратить внимание.
+В частности - вложенные стили.
+Вместо
+
 .header {
     padding: 192px,24px;
 }
 
 .header__logo {
+    justify-content: space-around;
+    display:flex;
+}
+
+правильно будет написать
+
+.header {
+    padding: 192px,24px;
+
+    &__logo {
+        justify-content: space-around;
+        display:flex;
+    }
+}
+
+3. Для каждого отдельного блока необходимо создавать отдельный less файл
+*/
+
+
+/*
+Судя по тому, как выглядит этот блок на макете, 
+у него должна быть задана максимальная ширина в 1536px
+
+Причем на точках излома стандартных размеров экрана посредством @media
+тебе необходимо будет эту максимальную ширину уменьшать до соответствующих текущему экрану размеров.
+
+Это будет распространяться вообще на все глобальные блоки на страницах
+
+*/
+.header {
+    /*
+    нужен пробел между свойствами padding: 192px, 24px;
+    */
+    padding: 192px,24px;
+}
+
+.header__logo {
+    /* 
+    Неверный порядок стилей.
+    Сначала должно быть display:flex, 
+    потом для него ты уже делаешь дополнительные стили вроде justify-content 
+    */
     justify-content: space-around;
     display:flex;
 }
@@ -13,6 +61,7 @@
 }
 
 .header__top {
+    // Забыл пробел после двоеточия во всех последующих стилях
     display:flex;
     justify-content:space-around;
     font-family: formular;
@@ -20,6 +69,7 @@
 
 .header__paragraph {
     font-size:24px;
+    // Он и так normal по-умолчанию
     font-style:normal;
     font-weight:900;
     line-height:32px;
@@ -37,11 +87,13 @@
 }
 
 .extra__number {
+    // Не используй именованные размеры, старайся юзать либо px, либо em, либо rem
     font-size: xx-large;
     font-weight: 900;
 }
 
 .extra__right {
+    // Не используй именованные размеры
     font-size:large;
 }
 
@@ -55,9 +107,11 @@
 }
 
 .header__buttons {
+    // Оно не будет работать, ты не указал display:flex
     justify-content: left;
 }
 
 .bottom__button {
+    // Оно не будет работать, ты не указал display:flex
     justify-content: right;
 }

@@ -1,0 +1,108 @@
+/*
+3. Для каждого отдельного блока необходимо создавать отдельный less файл
+*/
+
+/*
+Судя по тому, как выглядит этот блок на макете, 
+у него должна быть задана максимальная ширина в 1536px
+
+Причем на точках излома стандартных размеров экрана посредством @media
+тебе необходимо будет эту максимальную ширину уменьшать до соответствующих текущему экрану размеров.
+
+Это будет распространяться вообще на все глобальные блоки на страницах
+
+*/
+@import "lib";
+
+.link {
+    font-family: formular;
+    text-decoration: none;
+    color: #000000;
+    font-weight: 900;
+}
+
+.link:hover {
+    color: @purple;
+}
+
+.link:visited {
+    text-decoration: underline dashed;
+    color: @purple;
+}
+
+.button {
+    background-color: @purple;
+    color: @white;
+    border: none;
+    border-radius: 3px;
+    padding: 11px;
+    font-family: formular;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+@media screen {
+    .header {
+        padding: 192px, 24px;
+        max-width: 1536px;
+        margin-left: auto;
+        margin-right: auto;
+
+        &__top {
+            display: flex;
+            justify-content: space-around;
+            font-family: formular;
+
+            .logo {
+                display: flex;
+                justify-content: space-around;
+
+                &__img {
+                    width: 50px;
+                    height: 74px;
+                }
+
+                &__paragraph {
+                    font-size: 24px;
+                    font-weight: 900;
+                    line-height: 32px;
+                }
+            }
+        }
+
+        &__info {
+            display: flex;
+            justify-content: space-around;
+            gap: 10px;
+
+            &__left {
+                text-align: right;
+                line-height: 20px;
+            }
+
+            .header-contacts {
+                line-height: 1px;
+                justify-content: space-around;
+
+                &__number {
+                    font-size: 32px;
+                    font-weight: 900;
+                }
+
+                &__right {
+                    font-size: 18px;
+                    font-family: formular;
+                }
+            }
+        }
+
+        &__bottom {
+            display:flex;
+            justify-content: space-between;
+
+            &__links {
+               gap: px;
+            }
+        }
+    }
+}

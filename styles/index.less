@@ -1,8 +1,4 @@
 /*
-3. Для каждого отдельного блока необходимо создавать отдельный less файл
-*/
-
-/*
 Судя по тому, как выглядит этот блок на макете, 
 у него должна быть задана максимальная ширина в 1536px
 
@@ -17,17 +13,17 @@
 .link {
     font-family: formular;
     text-decoration: none;
-    color: #000000;
+    color: @black;
     font-weight: 900;
-}
 
-.link:hover {
-    color: @purple;
-}
+    &:hover {
+        color: @purple;
+    }
 
-.link:visited {
-    text-decoration: underline dashed;
-    color: @purple;
+    &:visited {
+        text-decoration: underline dashed;
+        color: @purple;
+    }
 }
 
 .button {
@@ -41,36 +37,33 @@
     letter-spacing: 1px;
 }
 
-@media screen {
-    .header {
-        padding: 192px, 24px;
-        max-width: 1536px;
-        margin-left: auto;
-        margin-right: auto;
+.header {
+    padding: 192px, 24px;
+    margin-left: auto;
+    margin-right: auto;
 
-        &__top {
+    &__top {
+        display: flex;
+        justify-content: space-around;
+        font-family: formular;
+
+        .logo {
             display: flex;
             justify-content: space-around;
-            font-family: formular;
 
-            .logo {
-                display: flex;
-                justify-content: space-around;
+            &__img {
+                width: 50px;
+                height: 74px;
+            }
 
-                &__img {
-                    width: 50px;
-                    height: 74px;
-                }
-
-                &__paragraph {
-                    font-size: 24px;
-                    font-weight: 900;
-                    line-height: 32px;
-                }
+            &__paragraph {
+                font-size: 24px;
+                font-weight: 900;
+                line-height: 32px;
             }
         }
 
-        &__info {
+        .header-info {
             display: flex;
             justify-content: space-around;
             gap: 10px;
@@ -95,14 +88,20 @@
                 }
             }
         }
-
-        &__bottom {
-            display:flex;
-            justify-content: space-between;
-
-            &__links {
-               gap: px;
-            }
-        }
     }
+
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+        margin-left: auto;
+        margin-right: auto;
+        width: 1200px;
+        max-width: 100%;
+    }
+}
+
+.content {
+    margin-top: 72px;
+    max-width: 100%;
+    width: 1536px;
 }

@@ -1,0 +1,23 @@
+@import "lib";
+
+.header-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    &__left {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        text-align: right;
+        line-height: 20px;
+
+        &:after {
+            content: '';
+            width: 2px;
+            height: 100%;
+            display: block;
+            background: @purple;
+        }
+    }
+}
